@@ -1,0 +1,19 @@
+{
+  "name": "software-testing-assignment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "mocha",
+    "coverage": "cross-env 'NODE_OPTIONS=--experimental-loader @istanbuljs/esm-loader-hook' nyc --all mocha"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "coveralls": "^3.1.1",
+    "mocha": "^10.1.0",
+    "nyc": "^15.1.0"
+  }
+}
