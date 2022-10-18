@@ -29,6 +29,6 @@ jobs:
       uses: dorny/test-reporter@v1
       if: success() || failure()
       with:
-        name: Mocha tests
+        name: Mocha tests ${{ matrix.node-version }}
         path: test-results.json
         reporter: mocha-json
