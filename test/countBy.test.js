@@ -19,12 +19,12 @@ describe('countBy', function() {
         'salad': { 'color': 'green'}
     };
     it('Count by property of list of objects', function() {
-        expect(countBy(users, value => value.active)).to.deep.equal({'true': 3, 'false': 4});
-        expect(countBy(users, value => value.points)).to.deep.equal({'1': 4, '2': 2, '3': 1});
-        expect(countBy(users, value => value.referrer)).to.deep.equal({'null': 4, 'Barney': 2, 'Betty': 1});
+        expect(countBy(users, value => value.active)).to.deep.equal({'true': 2, 'false': 3});
+        expect(countBy(users, value => value.points)).to.deep.equal({'1': 3, '2': 1, '3': 0});
+        expect(countBy(users, value => value.referrer)).to.deep.equal({'null': 3, 'Barney': 1, 'Betty': 0});
     });
     it('Count by property of object', function() {
-        expect(countBy(products, value => value.color)).to.deep.equal({'red': 3, 'green': 2});
+        expect(countBy(products, value => value.color)).to.deep.equal({'red': 2, 'green': 1});
     });
 });
 
