@@ -2,7 +2,7 @@ name: Tests
 
 on:
   push:
-    branches: [ "tool-test" ]
+    branches: [ "main", "tool-test" ]
 
 env:
   CI: true
