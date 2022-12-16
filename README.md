@@ -1,4 +1,4 @@
-[![Coverage Status](https://coveralls.io/repos/github/saippua/COMP.SE.200-Assignment/badge.svg?branch=tool-test)](https://coveralls.io/github/saippua/COMP.SE.200-Assignment?branch=tool-test)
+[![Coverage Status](https://coveralls.io/repos/github/saippua/COMP.SE.200-Assignment/badge.svg?branch=main)](https://coveralls.io/github/saippua/COMP.SE.200-Assignment?branch=main)
 
 # Student template
 
