@@ -13,11 +13,11 @@ describe('Equal', function() {
         expect(eq(NaN, NaN), 'NaN').to.be.true
         expect(eq(null, null), 'null').to.be.true
     });
-    // it('Empty values of different types should not be equal', function() {
-    //     expect(eq(undefined, NaN), 'undefined AND NaN').to.be.false
-    //     expect(eq(undefined, null), 'undefined AND null').to.be.false
-    //     expect(eq(NaN, null), 'NaN AND null').to.be.false
-    // });
+    it('Empty values of different types should not be equal', function() {
+        expect(eq(undefined, NaN), 'undefined AND NaN').to.be.false
+        expect(eq(undefined, null), 'undefined AND null').to.be.false
+        expect(eq(NaN, null), 'NaN AND null').to.be.false
+    });
     it('The same object should be equal to itself', function() {
         const object = {'Property': 1};
         expect(eq(object, object)).to.be.true
