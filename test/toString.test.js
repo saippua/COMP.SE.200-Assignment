@@ -8,9 +8,6 @@ describe('toString', function() {
         expect(toString(0), '0').to.be.equal('0')
         expect(toString(28), '28').to.be.equal('28')
     });
-    it('Undefined value should return empty string', function() {
-        expect(toString(undefined)).to.be.equal('');
-    });
     it('Null value should return empty string', function() {
         expect(toString(null)).to.be.equal('');
     });
