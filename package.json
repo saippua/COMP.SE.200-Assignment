@@ -10,7 +10,7 @@
   "scripts": {
     "test": "mocha",
     "mochawesome": "mocha --reporter mochawesome",
-    "test-cov": "c8 --all --reporter=lcovonly --reporter=text --include src/**/*.js npm test",
+    "test-cov": "c8 --all --reporter=lcovonly --reporter=text --include src/**/*.js npm -s test",
     "test-coveralls": "npm run test-cov && shx cat ./coverage/lcov.info | node ./node_modules/coveralls/bin/coveralls.js --verbose"
   },
   "author": "",
