@@ -29,27 +29,25 @@ describe('Get', function() {
     describe('Using path string', function() {
         it('Valid path', function() {
             expect(get(user, 'username')).to.be.equal('Barney');
-            expect(get(user, 'products[0][name]')).to.be.equal('tomato');
-            expect(get(user, 'products[0]')).to.be.equal(user['products'][0]);
+            expect(get(user, 'products[0][name]', 0)).to.be.equal('tomato');
+            expect(get(user, 'products[0]', 'default')).to.be.equal(user['products'][0]);
         });
         it('Incorrect path', function() {
-            expect(get(user, 'user')).to.be.undefined;
-            expect(get(user, 'user[0]')).to.be.undefined;
-            expect(get(user, 'products[tomato]')).to.be.undefined;
-            expect(get(user, 'products[0][name][2]')).to.be.undefined;
+            expect(get(user, 'user', 'Barney')).to.be.equal('Barney');
+            expect(get(user, 'user[0]', {})).to.be.an('object').and.empty;
+            expect(get(user, 'products[tomato]', {})).to.be.an('object').and.empty;
         });
     });
     describe('Using path array', function() {
         it('Valid path', function() {
-            expect(get(user, ['username'])).to.be.equal('Barney');
-            expect(get(user, ['products', 0, 'name'])).to.be.equal('tomato');
-            expect(get(user, ['products', 0])).to.be.equal(user['products'][0]);
+            expect(get(user, ['username'], 'Fred')).to.be.equal('Barney');
+            expect(get(user, ['products', 0, 'name'], 'potato')).to.be.equal('tomato');
+            expect(get(user, ['products', 0], {})).to.be.equal(user['products'][0]);
         });
         it('Incorrect path', function() {
-            expect(get(user, ['user'])).to.be.undefined;
-            expect(get(user, ['user', 0])).to.be.undefined;
-            expect(get(user, ['products', 'tomato'])).to.be.undefined;
-            expect(get(user, ['products', 0, 'name', 2])).to.be.undefined;
+            expect(get(user, ['user'], {})).to.be.an('object').and.empty;
+            expect(get(user, ['user', 0], 'Barney')).to.be.equal('Barney');
+            expect(get(user, ['products', 'tomato'], {})).to.be.an('object').and.empty;
         });
     });
 });
