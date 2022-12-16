@@ -25,6 +25,9 @@ describe('toInteger', function() {
             expect(toInteger('-32')).to.be.equal(-32);
             expect(toInteger('-0')).to.be.equal(0);
             expect(toInteger('0')).to.be.equal(0);
+            expect(toInteger('20.3')).to.be.equal(20);
+            expect(toInteger('47.8')).to.be.equal(47);
+            expect(toInteger('-10.2')).to.be.equal(-10);
         });
         it('Float string', function() {
             expect(toInteger('82.2')).to.be.equal(82);
@@ -36,11 +39,24 @@ describe('toInteger', function() {
             expect(toInteger('200e-1')).to.be.equal(20);
         });
     });
-    // describe('Unexpected values', function() {
-    //     it('Invalid strings', function() {
-    //         expect(toInteger('test')).to.be.equal(NaN);
-    //     });
-    // });
+    describe('Unexpected values', function() {
+        it('Invalid strings', function() {
+            const input = 'test';
+            try {
+                expect(toInteger(input)).to.be.oneOf([NaN, undefined, null]);
+            } catch {
+                expect(toInteger.bind(this, input)).to.throw()
+            }
+        });
+        it('Invalid input type', function() {
+            const input = {};
+            try {
+                expect(toInteger(input)).to.be.oneOf([NaN, undefined, null]);
+            } catch {
+                expect(toInteger.bind(this, input)).to.throw()
+            }
+        });
+    });
 });
 
 
